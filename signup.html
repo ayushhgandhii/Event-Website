@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["signup"]["Firstname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+
+
+   var y = document.forms["signup"]["Emailid"].value;
+   var atpos = y.indexOf("@");
+   var dotpos = y.lastIndexOf(".");
+   if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length) {
+       alert("Not a valid e-mail address");
+       return false;
+	   
+	   }
+ 
+  var phoneno = document.forms["signup"]["Contactno"].value;
+  var len= phoneno.length;
+  
+  if( phoneno.indexOf(" "!=-1) && len>10 )  
+        {  
+     alert("incorrect number");  
+        return false;  
+        }  
+        
+   if( phoneno.indexOf(" "!=-1) && len<10 )  
+        {  
+     alert("incorrect number");  
+        return false;  
+        }  
+
+}
+</script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+
+
+  <div data-role="main" class="ui-content">
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Dance competition</a>
+
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:350px ;min-height:300px;">
+      <form name="signup" action="insign.php"  onsubmit="return validateForm()" method="post">
+        <div>
+          <h3>Sign up</h3>
+          <label for="usrnm" class="ui-hidden-accessible">First name:</label>
+          <input type="text" name="Firstname" id="usrnm" placeholder="First name">
+       <label for="usrnm" class="ui-hidden-accessible">Middle name:</label>
+  <input type="text" name="Middlename" id="usrnm" placeholder="Middle name">
+        
+        <label for="usrnm" class="ui-hidden-accessible">Last name:</label>
+  <input type="text" name="Lastname" id="usrnm" placeholder="Last name">
+ 
+
+ <label for="usrnm" class="ui-hidden-accessible"> Gender:</label>
+  <input type="text" name="Gender" id="usrnm" placeholder="Gender">
+          
+       <label for="usrnm" class="ui-hidden-accessible">Branch</label>
+  <input type="text" name="Address" id="usrnm" placeholder="Address">
+            
+            <label for="usrnm" class="ui-hidden-accessible">Year</label>
+  <input type="text" name="Address" id="usrnm" placeholder="year">
+            <label for="usrnm" class="ui-hidden-accessible">Divison</label>
+  <input type="text" name="Address" id="usrnm" placeholder="divi">
+  
+  <label for="usrnm" class="ui-hidden-accessible">Email id:</label>
+  <input type="text" name="Emailid" id="usrnm" placeholder="Email-id">
+  
+  <label for="usrnm" class="ui-hidden-accessible">Contact no:</label>
+  <input type="number" name="Contactno" id="usrnm" placeholder="Contact no">
+          
+          
+          <input type="submit" data-inline="true" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div> 
+
+</body>
+</html>
