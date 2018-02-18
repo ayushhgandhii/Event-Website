@@ -1,0 +1,80 @@
+<html>
+<script type="text/javascript">
+function validateForm() {
+   var x = document.forms["JavaFormvalidation"]["Name"].value;
+   if (x == "") {
+       alert("Name must be filled out");
+       return false;
+   }
+
+
+
+  var y = document.forms["JavaFormvalidation"]["EmailID"].value;
+  var atpos = y.indexOf("@");
+  var dotpos = y.lastIndexOf(".");
+  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length) {
+      alert("Not a valid e-mail address");
+      return false;
+  
+  }
+  
+
+ var phoneno = document.forms["JavaFormvalidation"]["Mobile"].value;
+ var len= phoneno.length;
+ 
+ if( phoneno.indexOf(" "!=-1) && len>10 )  
+       {  
+    alert("incorrect number");  
+       return false;  
+       }  
+       
+  if( phoneno.indexOf(" "!=-1) && len<10 )  
+       {  
+    alert("incorrect number");  
+       return false;  
+       }  
+
+}
+</script>
+<body style="background-color:springgreen;">
+
+
+<fieldset>
+            <legend><h2>REGISTRATION FORM FOR SINGING COMPETITION</h2></legend>
+            <H5> FILL IN THE DETAILS </H5>
+
+        <form name="JavaFormvalidation" action="JavaFormvalidation.php"  onsubmit="return validateForm()" method="post">
+            
+        <strong>Full Name:</strong> <br>
+        <input type="text" name="Name">
+        <br><br>
+
+        <strong>Address:</strong> <br>
+        <input type="text" name="Address"> 
+        <br><br>
+
+        <strong>Email-ID:</strong><br>
+        <input type="text" name="EmailID">
+        <br><br>
+            
+        <strong>College Name:</strong><br>
+        <input type="text" name="College">
+        <br><br>
+
+        <strong>Contact Number:</strong><br>
+        <input type="number" name="Mobile">
+        <br><br>
+            
+        
+
+            <br>
+        <button type="submit" > Submit </button>
+            
+            
+
+        <input type="reset"> 
+            
+    </form>
+</fieldset>
+</body>
+</html>
